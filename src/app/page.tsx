@@ -39,75 +39,34 @@ export default function Home() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%)",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <h1 style={{ fontSize: "2rem", marginBottom: 24 }}>Formulario de Lead</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#e0eafc] to-[#cfdef3] text-black">
+      <h1 className="text-2xl mb-6">Formulario de Lead</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        style={{
-          background: "#fff",
-          padding: 24,
-          borderRadius: 8,
-          boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-          minWidth: 320,
-        }}
+        className="bg-white p-6 rounded-lg shadow-md min-w-[320px]"
       >
-        <label>
+        <label className="block">
           Email:
           <input
             type="email"
             {...register("email")}
-            style={{
-              display: "block",
-              marginTop: 8,
-              marginBottom: 8,
-              width: "100%",
-              padding: 8,
-              borderRadius: 4,
-              border: "1px solid #ccc",
-            }}
+            className="block mt-2 mb-2 w-full p-2 rounded border border-gray-300 disabled:bg-gray-100"
             disabled={isSubmitting}
           />
         </label>
         {errors.email && (
-          <div style={{ color: "red", marginBottom: 8 }}>
-            {errors.email.message}
-          </div>
+          <div className="text-red-600 mb-2">{errors.email.message}</div>
         )}
         <button
           type="submit"
           disabled={isSubmitting}
-          style={{
-            background: "#0070f3",
-            color: "#fff",
-            border: "none",
-            padding: "10px 20px",
-            borderRadius: 4,
-            cursor: "pointer",
-          }}
+          className="bg-blue-600 text-white border-none px-5 py-2 rounded cursor-pointer disabled:opacity-60"
         >
           Enviar
         </button>
       </form>
       {toast && (
-        <div
-          style={{
-            marginTop: 16,
-            background: "#4BB543",
-            color: "#fff",
-            padding: "10px 20px",
-            borderRadius: 4,
-            boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-          }}
-        >
+        <div className="mt-4 bg-green-600 text-white px-5 py-2 rounded shadow-md">
           {toast}
         </div>
       )}
