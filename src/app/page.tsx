@@ -1,5 +1,5 @@
-import SendEmail from "./components/sendemail";
+import UserCrud from "./components/UserCrud";
 
 export default function Home() {
-  return <SendEmail />;
+  return <UserCrud />;
 }
